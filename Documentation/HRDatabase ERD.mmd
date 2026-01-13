@@ -1,0 +1,187 @@
+erDiagram
+
+    SYSTEM_USER ||--O{ AUDIT_LOG : tracked_by
+    SYSTEM_USER {
+        int user_id PK
+        int employee_id 
+        %% (FK, nullable)
+        string username
+        string password_hash
+        string email
+        string role
+        bool is_active
+    }
+
+    AUDIT_LOG {
+        int log_id PK
+        int user_id FK
+        date timestamp
+        string table_name
+        string operation_type 
+        %% (INSERT/UPDATE/DELETE)
+        string changed_by_user_id FK
+        any old_values
+        any new_values
+        string details
+    }
+
+
+    COMPANY ||--|{ DIVISION : has
+    COMPANY ||--|| LOCATION : operates_in
+    COMPANY{
+        string code PK
+        string name
+        img logo
+        int location_id FK
+    }
+
+    LOCATION {
+        int location_id PK
+        string address
+        string city
+        string country
+        string postal_code
+    }
+
+    DIVISION ||--|{ DEPARTMENT : has
+    DIVISION {
+        string div_code PK
+        string div_name
+        string company_code FK
+    }
+
+    DEPARTMENT ||--|{ JOB : has
+    DEPARTMENT {
+        string dept_code PK
+        string dept_name
+        string div_code FK
+    }
+
+    JOB ||--|{ EMPLOYEE : employ
+    JOB ||--O{ ACTING_ASSIGNMENT : can_have
+    JOB {
+        string job_code PK
+        string job_title
+        float min_salary
+        float max_salary
+        int department_code FK
+    }
+
+    ACTING_ASSIGNMENT {
+        int assignment_id PK
+        string job_code FK
+        int employee_id FK
+        date start_date
+        date end_date
+        bool is_current
+    }
+
+    EMPLOYEE }|--|| EMPLOYEE_STATUS : has
+    EMPLOYEE }|--|| EMPLOYMENT_TYPE : classified_as
+    EMPLOYEE }|--|| LOCATION : assigned_to
+    
+    EMPLOYEE ||--|| ACTING_ASSIGNMENT : has
+    EMPLOYEE ||--O{ EMPLOYEE_SUPERVISOR : supervised_by
+
+    EMPLOYEE ||--|{ POSITION_HISTORY : recorded_in
+    EMPLOYEE ||--|{ STATUS_HISTORY : recorded_in
+
+    EMPLOYEE }O--|| CONTRACT_TYPE : uses    
+    EMPLOYEE }O--|| ANNIVERSARY_TYPE : tracked_by
+    EMPLOYEE ||--O| EMPLOYEE_CONTRACT : may_have
+    EMPLOYEE ||--O| EMPLOYEE_SEPARATION : may_have
+    SEPARATION_REASON ||--|{ EMPLOYEE_SEPARATION : explained_by
+
+
+    EMPLOYEE {
+        int employee_id PK
+        string first_name
+        string last_name
+        date hire_date
+        date birth_date
+        string job_code FK
+        int status_id FK
+        int employment_type_id FK
+        int contract_type_id FK
+        int location_id FK
+        int anniversary_type_id FK
+        int phone_number
+        string email
+    }
+
+    EMPLOYEE_STATUS {
+        string status_id PK
+        string status_name
+    }
+
+    EMPLOYMENT_TYPE {
+        string employment_type_id PK
+        string type_name
+    }
+
+    CONTRACT_TYPE {
+        string contract_type_id PK
+        string contract_name
+        string duration_months
+    }
+
+    EMPLOYEE_CONTRACT {
+        int contract_id PK
+        int employee_id FK
+        string contract_type_id FK
+        date probation_end_date
+        date start_date
+        date end_date
+        string terms_and_conditions
+    }
+
+    ANNIVERSARY_TYPE {
+        int anniversary_type_id PK
+        string type_name
+        string description
+        date created_at
+        date updated_at
+        date anniversary_date
+        string created_by
+        string updated_by
+    }
+
+    POSITION_HISTORY {
+        int history_id PK
+        int employee_id FK
+        string job_code FK
+        date start_date
+        date end_date
+        string position_type 
+        %% (SUBSTANTIVE/ACTING)
+    }
+
+    STATUS_HISTORY {
+        int status_history_id PK
+        int employee_id FK
+        string status_id FK
+        date start_date
+        date end_date
+    }
+
+    EMPLOYEE_SEPARATION {
+        int separation_id PK
+        int employee_id FK
+        int reason_id FK
+        date separation_date
+        string notes
+        bool rehire_eligibility
+    }
+
+    SEPARATION_REASON {
+        int reason_id PK
+        string reason_description
+    }
+
+    EMPLOYEE_SUPERVISOR {
+        int employee_id FK
+        int supervisor_id FK
+        date start_date
+        date end_date
+    }
+
