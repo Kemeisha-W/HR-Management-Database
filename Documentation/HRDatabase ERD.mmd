@@ -89,8 +89,8 @@ erDiagram
     EMPLOYEE }O--|| CONTRACT_TYPE : uses    
     EMPLOYEE }O--|| ANNIVERSARY_TYPE : tracked_by
     EMPLOYEE ||--O| EMPLOYEE_CONTRACT : may_have
-    EMPLOYEE ||--O| EMPLOYEE_SEPARATION : may_have
-    SEPARATION_REASON ||--|{ EMPLOYEE_SEPARATION : explained_by
+    EMPLOYEE ||--O| SEPARATION_Details : may_have
+    SEPARATION_REASON ||--|{ SEPARATION_Details : explained_by
 
 
     EMPLOYEE {
@@ -164,7 +164,7 @@ erDiagram
         date end_date
     }
 
-    EMPLOYEE_SEPARATION {
+    SEPARATION_Details {
         int separation_id PK
         int employee_id FK
         int reason_id FK
