@@ -1,0 +1,120 @@
+🧱 1. Core System Pages (Foundation)
+
+These are non-negotiable for almost any portal:
+
+Login Page
+Registration / Invite Activation Page (if users are created via invite)
+Forgot Password / Reset Password
+Session Expired / Unauthorized (401/403)
+Error Page (404 / 500)
+
+🏠 2. Entry & Navigation
+Dashboard (Home)
+Global Search Page (results view, filters, categories)
+Notifications Center (full history, not just dropdown)
+
+📥 3. Requests / Service Management
+Request List Page (all requests with filters)
+Create Request Page
+Request Detail Page
+Edit Request Page (optional if not inline)
+My Requests Page (user-specific view)
+
+✅ 4. Tasks & Workflow
+Task List Page
+Task Detail Page
+Create Task Page
+Workflow / Pipeline View Page (Kanban or status-based)
+My Tasks Page
+
+✔️ 5. Approvals (If applicable)
+Approvals Queue Page
+Approval Detail Page
+📊 6. Reports & Analytics
+Reports List Page
+Report Detail / Viewer Page
+Create / Configure Report Page
+Export / Download Page (or modal-based)
+
+👉 Often integrates concepts similar to Microsoft Power BI, but you still need your own wrapper pages.
+
+📚 7. Documents & Knowledge Base
+Document Library Page
+Document Detail Page
+Upload / Create Document Page
+Edit Document Page
+Knowledge Base Article Page
+
+👥 8. People & Organization
+User Directory Page
+User Profile Page
+Edit Profile Page
+Org Chart Page (optional but useful)
+
+📅 9. Calendar & Scheduling
+Calendar View Page
+Event Detail Page
+Create / Edit Event Page
+
+📢 10. Communication
+Announcements Page
+Announcement Detail Page
+Create Announcement Page
+📈 11. Performance / KPIs
+KPI Overview Page
+KPI Detail Page (drill-down)
+Targets / Goals Page
+
+⚙️ 12. Settings & Administration
+User Management Page
+Roles & Permissions Page
+System Settings Page
+Workflow Configuration Page
+Form Builder Page (for requests)
+
+🔍 13. Audit & Compliance
+Audit Logs Page
+Activity History Page (per record)
+
+🔗 14. Integrations (Optional Early, Critical Later)
+Integrations List Page
+Integration Detail / Config Page
+
+🧪 15. Utility / Support Pages (Often Missed)
+Help / Support Page
+FAQ Page
+Feedback / Report Issue Page
+🧭 Suggested Build Order (Practical)
+
+Don’t try to build everything at once. Start with a vertical slice:
+
+Phase 1 (MVP)
+Login
+Dashboard
+Request List + Create + Detail
+Task List + Detail
+Basic Settings (profile only)
+Phase 2
+Approvals
+Notifications Center
+Documents
+Reports (basic)
+Phase 3
+Admin (roles, workflows)
+Audit logs
+Integrations
+Advanced analytics
+🧠 Key Architectural Insight
+
+Each “page” should map cleanly to:
+
+A route (e.g., /requests/:id)
+A backend resource (Request, Task, User, etc.)
+A permission model
+
+If a page doesn’t map to a resource or action, question whether it should exist.
+
+If you want, next step I can:
+
+Convert this into a route structure (URL schema)
+Or map it into a database schema + ERD alignment based on your earlier ERD question

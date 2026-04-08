@@ -1,0 +1,21 @@
+TECH STACK FOR HR MANAGEMENT SYSTEM  
+Backend: Python (Flask or pure logic)  
+Frontend: PyQt / PySide / React  
+Database: PostgreSQL (or MySQL)  
+API Layer (optional): FastAPI  
+
+Why this setup is effective  
+Clear architecture (separating frontend and backend)  
+Simplifies future web upgrades  
+Features supported:  
+ Multi-user systems  
+ Authentication  
+ Role-based access control (HR vs Admin)  
+
+PROGRAM FLOW  
+
+Imports  
+Variables  
+Function definitions  
+Main function if used  
+Main code execution

@@ -136,7 +136,7 @@ erDiagram
     }
 
     ANNIVERSARY_TYPE {
-        int anniversary_type_id PK
+        int id PK
         string type_name
         string description
         date created_at
@@ -147,7 +147,7 @@ erDiagram
     }
 
     POSITION_HISTORY {
-        int history_id PK
+        int id PK
         int employee_id FK
         string job_code FK
         date start_date
@@ -157,7 +157,7 @@ erDiagram
     }
 
     STATUS_HISTORY {
-        int status_history_id PK
+        int id PK
         int employee_id FK
         string status_id FK
         date start_date
@@ -165,7 +165,7 @@ erDiagram
     }
 
     SEPARATION_Details {
-        int separation_id PK
+        int id PK
         int employee_id FK
         int reason_id FK
         date separation_date
@@ -174,7 +174,7 @@ erDiagram
     }
 
     SEPARATION_REASON {
-        int reason_id PK
+        int id PK
         string reason_description
     }
 
