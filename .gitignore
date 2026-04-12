@@ -3,7 +3,8 @@ __pycache__/
 *.py[cod]
 
 # Virtual environments
-venv/
+HRD_app/venv/
+Scripts/
 
 #Temporary Files
 temp/
