@@ -6,13 +6,15 @@ This HR Management System is my personal project. Used to actively develop and s
 Please Note: 
 This project is not yet complete. It is continuously being improved as I learn and apply new concepts.
 
-**What is the Purpose?**
+<details>
+ <summary> What is the Purpose? </summary>
 The main goals of this project are to:
 - Practice backend development using Python
 - Apply database design principles
 - Implement clean architecture and modular code structure
 - Learn and apply Test-Driven Development (TDD)
 - Showcase consistent growth and commitment to improving my programming skills
+</details>
 
 **⚙️ Current Features**
 Job and organizational structure setup
@@ -20,22 +22,39 @@ Database schema design using SQLAlchemy
 Modular project structure (models, services, UI separation)
 Basic CRUD operations
 
-<**Project_Structure**> 
+<summary>Project Structure</summary>
 HRD_app/
  - main.py
  - database.py
- - models/
-   - employee.py
-   - job.py
-   - organization.py
-  
+ - Logos
+    - Images
+ - models
+   - __init__.py
+   - audit
+      - (in progress)
+   - contract
+      - (in progress)
+   - employee
+       - (in progress)
+   - history
+       - history.py
+   - job
+       - grade.py
+       - job.py
+   - organization
+       - company.py
+       - department.py
+       - division.py
+       - location.py
+   - separation
+         - (in progress)
  - services/
-   - employee_service.py
+   -(in progress)
  - ui/
    - (in progress)
  - tests/
    - (pytest-based tests)
-</**Project_Structure**>
+
 
 **What are the technologies used?**
   Python
@@ -43,8 +62,7 @@ HRD_app/
   SQLite
   Pytest (for testing)
 
-![Tests](https://img.shields.io/badge/tests-pytest-green)
-Testing
+**Testing** \n
 Testing is being implemented using pytest, with a focus on:
   Database integrity
   CRUD operations
@@ -58,7 +76,6 @@ Testing is being implemented using pytest, with a focus on:
   Enhancing validation and error handling
   Refactoring for scalability and maintainability
   
-  ![Status](https://img.shields.io/badge/status-in%20progress-yellow)
 
 **📈 Development Approach**
   Iterative development with continuous refactoring
