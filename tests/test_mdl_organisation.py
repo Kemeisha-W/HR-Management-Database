@@ -1,5 +1,5 @@
 
-def test_create_company(session):
+def test_crud_company(session):
     from HRD_app.models.organization.company import Company
     company = Company(code = "COMPTest", name = "Test Company Ltd", location_id = 1)
     session.add(company)
@@ -13,7 +13,7 @@ def test_create_company(session):
         session.delete(company)
         session.commit()
 
-def  test_create_division(session):
+def  test_crud_division(session):
     from HRD_app.models.organization.division import Division
     division = Division(code = "DIVTest", name = "Division Name", company_code = "COMPTest")
     session.add(division)
@@ -28,7 +28,7 @@ def  test_create_division(session):
         session.delete(division)
         session.commit()
 
-def test_create_department(session):
+def test_crud_department(session):
     from HRD_app.models.organization.department import Department
     dept = Department(code = "DEPTTest", name = "Department Name", division_code = "DIVTest")
     session.add(dept)
@@ -43,7 +43,7 @@ def test_create_department(session):
         session.delete(dept)
         session.commit()
 
-def test_create_location(session):
+def test_crud_location(session):
     from HRD_app.models.organization.location import Location
     location = Location(id = 1, name = "Location Name", address = "123 Test St")
     session.add(location)
