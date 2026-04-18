@@ -1,15 +1,25 @@
 # Python
 __pycache__/
 *.py[cod]
+.conda/
+.pytest_cache/
+.pyre/
 
 # Virtual environments
 HRD_app/venv/
 Scripts/
+venv/
+.env/
+env/
+ENV/
+Lib/
+Scripts/
+Include/
+pyvenv.cfg
 
 #Temporary Files
 temp/
 Sample Data/
-Documentation/
 
 # Database (important)
 *.db
