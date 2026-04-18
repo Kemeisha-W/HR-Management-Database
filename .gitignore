@@ -9,6 +9,7 @@ Scripts/
 #Temporary Files
 temp/
 Sample Data/
+Documentation/
 
 # Database (important)
 *.db
