@@ -1,6 +1,6 @@
 from sqlalchemy import Column,Integer, String
 from sqlalchemy.orm import relationship
-from database import Base
+from HRD_app.database import Base
 
 class Location(Base):
     __tablename__ = "locations"
@@ -11,5 +11,5 @@ class Location(Base):
     postal_code = Column(String)
 
     #relationships
-    company = relationship("Company", back_populates= "locations")
+    company = relationship("Company", back_populates= "location")
     employees = relationship("Employee", back_populates="location")

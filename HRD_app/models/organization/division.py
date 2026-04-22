@@ -1,6 +1,6 @@
 from sqlalchemy import Column,ForeignKey,Integer, String
 from sqlalchemy.orm import relationship
-from database import Base
+from HRD_app.database import Base
 
 class Division(Base):
     __tablename__ = "divisions"
