@@ -31,31 +31,13 @@ HRD_app/
  - Logos
     - Images
  - models
-   - __init__.py
-   - audit
-      - (in progress)
-   - contract
-      - (in progress)
-   - employee
-       - (in progress)
-   - history
-       - history.py
-   - job
-       - grade.py
-       - job.py
-   - organization
-       - company.py
-       - department.py
-       - division.py
-       - location.py
-   - separation
-         - (in progress)
+   - (Started | In Progress)
  - services/
    -(in progress)
  - ui/
    - (in progress)
  - tests/
-   - (pytest-based tests)
+   - (Started | In Progress)
 
 
 
