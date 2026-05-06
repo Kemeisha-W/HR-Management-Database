@@ -7,6 +7,7 @@ class ContractType(Base):
     id = Column(String,primary_key=True)
     name = Column(String)
     duration = Column(String)
+    
     contract = relationship("Contract", back_populates="ContractType")
 
      #Utility Methods

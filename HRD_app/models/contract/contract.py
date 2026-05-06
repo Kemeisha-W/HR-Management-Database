@@ -10,8 +10,10 @@ class Contract(Base):
     end_date = Column(Date)
     description = Column(String)
     contract_type_id = Column(String, ForeignKey("ContractType.id"))
-    contract_type_id = relationship("ContractType", back_populates="Contract")
     employee_id = Column(Integer, ForeignKey("employee.id"))
+
+    #relationships
+    contract_type_id = relationship("ContractType", back_populates="Contract")
     employee_id = relationship("Employee", back_populates="Contract")
 
     #Utility Methods

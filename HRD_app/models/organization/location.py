@@ -13,3 +13,7 @@ class Location(Base):
     #relationships
     company = relationship("Company", back_populates= "location")
     employees = relationship("Employee", back_populates="location")
+
+    #utility method
+    def __repr__(self):
+        return f"Location(id={self.id}, address='{self.address}', city='{self.city}', country='{self.country}', postal_code='{self.postal_code}')"

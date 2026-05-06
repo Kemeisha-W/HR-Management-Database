@@ -11,6 +11,11 @@ class EmployeeContract(Base):
     start_date = Column(Date, nullable=False)
     end_date = Column(Date, nullable=True)
     terms = Column(String, nullable=True)
-    
+
+    #relationships
     employee = relationship("Employee", back_populates="contracts")
     contract_type = relationship("ContractType", back_populates="employee_contracts")
+
+    #utility methods
+    def __repr__(self):
+        return f"<EmployeeContract(id={self.id}, employee_id={self.employee_id}, contract_type_id='{self.contract_type_id}', start_date={self.start_date}, end_date={self.end_date})>"  

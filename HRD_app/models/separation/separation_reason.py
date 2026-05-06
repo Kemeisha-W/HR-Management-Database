@@ -7,4 +7,10 @@ class SeparationReason(Base):
 
     id = Column(Integer, primary_key = True)
     description = Column(String)
+    
+    #relationship
     sep_details = relationship("SeparationDetail", back_populates="SeparationReason")
+
+    #Utility Method
+    def __repr__(self):
+        return f"<SeparationReason(id={self.id}, description='{self.description}')>"
