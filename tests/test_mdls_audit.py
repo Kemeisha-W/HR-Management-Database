@@ -1,6 +1,6 @@
 def test_crud_auditlog(session):
     from HRD_app.models.audit.audit_log import AuditLog
-    log = AuditLog(id = 1,user_id = 001,username = "User", password_hash = "********", email = "user1@gmail.com", role = "admin", is_active = True )
+    log = AuditLog(id = 1,user_id = 001,username = "User", password_hash = "test_password", email = "user1@gmail.com", role = "admin", is_active = True )
     session.add(log)
     session.commit
 
@@ -10,7 +10,7 @@ def test_crud_auditlog(session):
         assert retrieved.id == 1
         assert retrieved.user_id == 001
         assert retrieved.username == "User"
-        assert retrieved.password_hash == "********"
+        assert retrieved.password_hash == "test_password"
         assert retrieved.email == "user1@gmail.com"
         assert retrieved.role == "admin"
         assert retrieved.is_active == True
@@ -23,7 +23,7 @@ def test_crud_auditlog(session):
 
     try:
         assert updated_log.username == "Updated Username"
-    except:
+    except Exception as e:
         print(f"Error during test updating audit log: {e}")
     finally:
         session.delete(log)
@@ -35,7 +35,7 @@ def test_crud_auditlog(session):
 
 def test_crud_systemuser(session):
     from HRD_app.models.audit.system_user import SystemUser
-    user = SystemUser(id = 1,employee_id = 001,username = "User", password_hash = "********", email = "user1@gmail.com", role = "admin", is_active = True )
+    user = SystemUser(id = 1,employee_id = 001,username = "User", password_hash = "test_password", email = "user1@gmail.com", role = "admin", is_active = True )
     session.add(user)
     session.commit
 
@@ -45,7 +45,7 @@ def test_crud_systemuser(session):
         assert retrieved.id == 1
         assert retrieved.employee_id == 001
         assert retrieved.username == "User"
-        assert retrieved.password_hash == "********"
+        assert retrieved.password_hash == "test_password"
         assert retrieved.email == "user1@gmail.com"
         assert retrieved.role == "admin"
         assert retrieved.is_active == True
@@ -63,8 +63,8 @@ def test_crud_systemuser(session):
     finally:
         session.delete
         session.commit
-    
+
     #verify deletion
     del_user = session.query(user).filter_by(id = 1).first
-    session.commit
+    assert del_user is None
 
